@@ -11,6 +11,7 @@ export class EmployeeComponent implements OnInit {
   emailRegex =
     /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
   // phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+  phoneRegex = "^((\\+91-?)|0)?[0-9]{10}$"
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -20,7 +21,7 @@ export class EmployeeComponent implements OnInit {
       address: [null, [Validators.required]],
       phoneNumber: [
         null,
-        [Validators.required],
+        [Validators.required, Validators.pattern(this.phoneRegex)],
       ],
       dob: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.pattern(this.emailRegex)]],
