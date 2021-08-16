@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="employeeForm" (submit)="submit()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Name </mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error
+          *ngIf="
+            employeeForm.controls.name.touched &&
+            employeeForm.controls.name.invalid
+          "
+        >
+          <span *ngIf="employeeForm.controls.name.errors?.required"
+            >This field is mandatory.</span
+          >
+          <span *ngIf="employeeForm.controls.name.errors?.pattern"
+            >This field is invalid.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Address </mat-label>
+        <input matInput formControlName="address" required />
+        <mat-error
+          *ngIf="
+            employeeForm.controls.address.touched &&
+            employeeForm.controls.address.invalid
+          "
+        >
+          <span *ngIf="employeeForm.controls.address.errors?.required"
+            >This field is mandatory.</span
+          >
+          <span *ngIf="employeeForm.controls.address.errors?.pattern"
+            >This field is invalid.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Phone Number </mat-label>
+        <input matInput formControlName="phoneNumber" required />
+        <mat-error
+          *ngIf="
+            employeeForm.controls.phoneNumber.touched &&
+            employeeForm.controls.phoneNumber.invalid
+          "
+        >
+          <span *ngIf="employeeForm.controls.phoneNumber.errors?.required"
+            >This field is mandatory.</span
+          >
+          <span *ngIf="employeeForm.controls.phoneNumber.errors?.pattern"
+            >This field is invalid.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput formControlName="dob" [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error
+          *ngIf="
+            employeeForm.controls.dob.touched &&
+            employeeForm.controls.dob.invalid
+          "
+        >
+          <span *ngIf="employeeForm.controls.dob.errors?.required"
+            >This field is mandatory.</span
+          >
+          <span *ngIf="employeeForm.controls.dob.errors?.pattern"
+            >This field is invalid.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> E-mail </mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required
+        />
+        <mat-error
+          *ngIf="
+            employeeForm.controls.email.touched &&
+            employeeForm.controls.email.invalid
+          "
+        >
+          <span *ngIf="employeeForm.controls.email.errors?.required"
+            >This field is mandatory.</span
+          >
+          <span *ngIf="employeeForm.controls.email.errors?.pattern"
+            >This field is invalid.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        style="display: flex; justify-content: flex-start"
+      >
+        Log In
+      </button>
+    </form>
+  </div>
+</div>
